@@ -122,8 +122,9 @@ if(isset($_POST['uploadBtn']) && $_POST['uploadBtn'] == 'Upload'){
                             );
                             array_push($allCustomersId, $customerId);
 
-                            $uniqCustomer->continentNameFrom = 'Europe';
-                            $uniqCustomer->continentCodeFrom = 'EU';
+                            // For test Request API is limited
+                            //$uniqCustomer->continentNameFrom = 'Europe';
+                            //$uniqCustomer->continentCodeFrom = 'EU';
                             $curlRequestData = $req->sendGetCurlRequest("http://api.ipstack.com/$customerIp", '4d8e86cea01e4414e7061eb67e19d3ce');
                             if($curlRequestData["status"]) {
                                 $uniqCustomer->continentNameFrom = $curlRequestData["response"]->continent_name;
